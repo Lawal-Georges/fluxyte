@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { cubicBezier, motion, useScroll, useTransform } from "framer-motion";
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import {
@@ -33,7 +33,7 @@ const Portfolio = () => {
             y: 0,
             transition: {
                 duration: 0.8,
-                ease: [0.25, 0.46, 0.45, 0.94]
+                ease: cubicBezier(0.25, 0.46, 0.45, 0.94) // ✅ Type compatible
             }
         }
     };
@@ -280,8 +280,8 @@ const Portfolio = () => {
                     </h1>
 
                     <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                        Découvrez nos réalisations où l'innovation technologique rencontre
-                        l'excellence du design architectural. Chaque projet est une structure
+                        Découvrez nos réalisations où l&#39;innovation technologique rencontre
+                        l&#39;excellence du design architectural. Chaque projet est une structure
                         unique pensée pour durer.
                     </p>
                 </motion.div>
@@ -299,6 +299,8 @@ const Portfolio = () => {
                             <motion.div
                                 key={project.id}
                                 variants={buildingVariants}
+                                initial="hidden"                 // Important !
+                                animate="visible"                // Important !
                                 whileHover={{
                                     y: -15,
                                     scale: 1.02,

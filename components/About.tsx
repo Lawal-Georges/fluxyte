@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { Button } from "../components/ui/button"
 import { ArrowRight, Play, ChevronDown, Users, Target, Zap, Sparkles, Award, Globe, Rocket, Heart, Shield } from "lucide-react"
 import Link from "next/link"
@@ -47,34 +47,35 @@ export default function About() {
     ]
 
 
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.3
-            }
-        }
+                staggerChildren: 0.2, // orchestration des enfants
+            },
+        },
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: {
             opacity: 0,
-            y: 30,
-            scale: 0.8
+            y: 20,
+            scale: 0.95,
         },
         visible: {
             opacity: 1,
             y: 0,
             scale: 1,
             transition: {
-                type: "spring",
+                type: "spring", // must be "spring" or "tween"
                 stiffness: 100,
-                damping: 12
-            }
-        }
+                damping: 20,
+                ease: [0.42, 0, 0.58, 1], // cubic-bezier array ok
+            },
+        },
     };
+
 
 
     return (

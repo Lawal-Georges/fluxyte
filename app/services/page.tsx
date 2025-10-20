@@ -155,10 +155,12 @@ export default function Services() {
         }
     };
 
-    const getShapeClass = (shape: string) => {
+    type Shape = "rectangle" | "square" | "wide" | "hexagon" | "circle" | "triangle" | "diamond" | "pentagon" | "star";
+
+    const getShapeClass = (shape: Shape) => {
         const baseClasses = "relative overflow-hidden group cursor-pointer border-0 backdrop-blur-sm transition-all duration-500";
 
-        const shapeClasses = {
+        const shapeClasses: Record<Shape, string> = {
             rectangle: "rounded-3xl aspect-[4/3]",
             square: "rounded-3xl aspect-square",
             wide: "rounded-3xl col-span-2 aspect-[2/1]",
@@ -172,6 +174,7 @@ export default function Services() {
 
         return `${baseClasses} ${shapeClasses[shape]}`;
     };
+
 
     return (
         <div className="min-h-screen bg-white dark:bg-gray-950">

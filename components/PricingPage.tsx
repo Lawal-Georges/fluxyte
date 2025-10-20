@@ -4,7 +4,7 @@ import { motion, Easing } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Check, X, Star, ArrowRight, HelpCircle, Zap, Sparkles, Target, Crown, User, Calendar, ChevronDown } from 'lucide-react'
-import { useState } from 'react'
+import { useState, MouseEvent } from 'react'
 
 const PricingPage = () => {
     const [activePlan, setActivePlan] = useState('pro')
@@ -186,8 +186,12 @@ const PricingPage = () => {
         }
     }
 
-    function scrollToServices(event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
-        throw new Error('Function not implemented.')
+    function scrollToServices(event: MouseEvent<HTMLButtonElement>) {
+        event.preventDefault(); // empêche le comportement par défaut
+        const servicesSection = document.getElementById("services");
+        if (servicesSection) {
+            servicesSection.scrollIntoView({ behavior: "smooth" });
+        }
     }
 
     return (
@@ -257,7 +261,7 @@ const PricingPage = () => {
                             whileTap={{ scale: 0.95 }}
                             className="px-4"
                         >
-                            <Button size="sm" className="w-full sm:w-auto rounded-full px-6 py-5 md:px-10 md:py-7 text-base md:text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                            <Button onClick={scrollToServices} size="sm" className="w-full sm:w-auto rounded-full px-6 py-5 md:px-10 md:py-7 text-base md:text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 shadow-xl hover:shadow-2xl transition-all duration-300 group">
                                 <Target className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
                                 Démarrer mon projet
                                 <ArrowRight className="ml-2 md:ml-3 h-5 w-5 md:h-6 md:w-6 group-hover:translate-x-1 transition-transform" />
@@ -340,28 +344,26 @@ const PricingPage = () => {
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                                     {/* Badge */}
-                                    <div
-                                        className={cn(
-                                            "absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-3 py-1 sm:px-6 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-white shadow-lg z-10 text-center",
-                                            plan.popular
-                                                ? "bg-gradient-to-r from-blue-500 to-cyan-500"
-                                                : "bg-gradient-to-r from-gray-600 to-gray-500"
-                                        )}
-                                        style={{ maxWidth: "90%" }} // Limite la largeur sur mobile
-                                    >
-                                        {plan.popular ? (
-                                            <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap">
-                                                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
-                                                <span className="text-ellipsis overflow-hidden whitespace-nowrap sm:whitespace-normal">
-                                                    {plan.badge}
-                                                </span>
-                                            </div>
-                                        ) : (
-                                            <span className="text-ellipsis overflow-hidden whitespace-nowrap sm:whitespace-normal">
-                                                {plan.badge}
-                                            </span>
-                                        )}
+                                    <div className="relative">
+                                        <div
+                                            className={cn(
+                                                "absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-3 py-1 sm:px-6 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-white shadow-lg z-10 text-center max-w-[90%] sm:max-w-xs",
+                                                plan.popular
+                                                    ? "bg-gradient-to-r from-blue-500 to-cyan-500"
+                                                    : "bg-gradient-to-r from-gray-600 to-gray-500"
+                                            )}
+                                        >
+                                            {plan.popular ? (
+                                                <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap">
+                                                    <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
+                                                    <span className="truncate">{plan.badge}</span>
+                                                </div>
+                                            ) : (
+                                                <span className="truncate">{plan.badge}</span>
+                                            )}
+                                        </div>
                                     </div>
+
 
 
                                     <CardHeader className="text-center pb-4 sm:pb-6 pt-6 sm:pt-8 relative z-10 px-4 sm:px-6">
@@ -462,7 +464,7 @@ const PricingPage = () => {
                             </span>
                         </h2>
                         <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-                            Visualisez en un coup d'œil ce qui est inclus dans chaque plan
+                            Visualisez en un coup d&#39;œil ce qui est inclus dans chaque plan
                         </p>
                     </motion.div>
 
