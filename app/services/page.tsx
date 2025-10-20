@@ -388,7 +388,7 @@ export default function Services() {
                         </h2>
                         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                             Une gamme complète de services digitaux pour propulser votre business
-                            dans l'ère numérique.
+                            dans l&#39;ère numérique.
                         </p>
                     </motion.div>
 
@@ -498,7 +498,7 @@ export default function Services() {
                             </span>
                         </h2>
                         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                            Un processus éprouvé en 4 étapes pour garantir l'excellence et le succès de votre projet.
+                            Un processus éprouvé en 4 étapes pour garantir l&#39;excellence et le succès de votre projet.
                         </p>
                     </motion.div>
 
@@ -630,11 +630,11 @@ export default function Services() {
                         </motion.div>
 
                         <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
-                            Créons ensemble quelque chose d'extraordinaire
+                            Créons ensemble quelque chose d&#39;extraordinaire
                         </h2>
 
                         <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
-                            Votre projet mérite l'excellence. Discutons de vos ambitions et
+                            Votre projet mérite l&#39;excellence. Discutons de vos ambitions et
                             donnons vie à vos idées les plus audacieuses.
                         </p>
 
@@ -663,7 +663,7 @@ export default function Services() {
                                     className="border-2 border-white text-white hover:bg-white/10 text-lg px-3 py-3 rounded-full font-bold backdrop-blur-sm"
                                 >
                                     <Users className="mr-3 h-6 w-6" />
-                                    Rencontrer l'équipe
+                                    Rencontrer l&#39;équipe
                                 </Button>
                             </motion.div>
                         </div>

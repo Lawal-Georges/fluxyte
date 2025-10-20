@@ -19,7 +19,7 @@ const CTA = () => {
                         Prêt à transformer votre vision en réalité ?
                     </h2>
                     <p className="text-xl text-blue-100 mb-8">
-                        Contactez-nous dès aujourd'hui pour discuter de votre projet et obtenir un devis personnalisé.
+                        Contactez-nous dès aujourd&#39;hui pour discuter de votre projet et obtenir un devis personnalisé.
                     </p>
 
                     <motion.div

@@ -46,32 +46,6 @@ export default function About() {
         }
     ]
 
-    const team = [
-        {
-            name: "Alexandre Martin",
-            role: "CEO & Lead Developer",
-            image: "/team/alexandre.jpg",
-            description: "Expert en développement full-stack avec 8 ans d'expérience dans le digital."
-        },
-        {
-            name: "Sophie Lambert",
-            role: "Creative Director",
-            image: "/team/sophie.jpg",
-            description: "Passionnée par le design d'expérience et l'innovation visuelle."
-        },
-        {
-            name: "Thomas Dubois",
-            role: "CTO & Mobile Expert",
-            image: "/team/thomas.jpg",
-            description: "Spécialiste des applications mobiles natives et cross-platform."
-        },
-        {
-            name: "Marie Chen",
-            role: "Growth Marketer",
-            image: "/team/marie.jpg",
-            description: "Stratège en marketing digital et acquisition utilisateurs."
-        }
-    ]
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -147,7 +121,7 @@ export default function About() {
                             transition={{ delay: 0.4 }}
                             className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-snug"
                         >
-                            Plus qu'une agence,{" "}
+                            Plus qu&#39;une agence,{" "}
                             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent block sm:inline">
                                 votre partenaire
                             </span>{" "}
@@ -162,7 +136,7 @@ export default function About() {
                             className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-2"
                         >
                             Depuis 2020, nous accompagnons les entreprises dans leur transformation digitale
-                            avec passion, expertise et une vision tournée vers l'innovation.
+                            avec passion, expertise et une vision tournée vers l&#39;innovation.
                         </motion.p>
 
                         {/* Bouton */}
@@ -293,7 +267,7 @@ export default function About() {
                                     className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-medium mb-3 sm:mb-4"
                                 >
                                     <Target className="h-3 w-3 sm:h-4 sm:w-4" />
-                                    Notre Raison d'Être
+                                    Notre Raison d&#39;Être
                                 </motion.div>
                                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white">
                                     Donner vie à votre{" "}
@@ -334,7 +308,7 @@ export default function About() {
                                             className="space-y-3 sm:space-y-4 text-sm sm:text-base"
                                         >
                                             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                                                Notre mission est de démocratiser l'excellence digitale en offrant
+                                                Notre mission est de démocratiser l&#39;excellence digitale en offrant
                                                 des solutions innovantes, accessibles et sur-mesure qui transforment
                                                 réellement le business de nos clients.
                                             </p>
@@ -364,7 +338,7 @@ export default function About() {
                                             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                                                 Nous envisageons un futur où chaque entreprise, quelle que soit sa taille,
                                                 peut bénéficier des meilleures solutions digitales pour prospérer
-                                                dans l'économie moderne.
+                                                dans l&#39;économie moderne.
                                             </p>
                                         </motion.div>
                                     )}

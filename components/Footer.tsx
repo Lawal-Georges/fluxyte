@@ -252,7 +252,7 @@ const Footer = () => {
                                 Politique de confidentialité
                             </Link>
                             <Link href="/terms" className="text-gray-400 hover:text-blue-400 transition-colors">
-                                Conditions d'utilisation
+                                Conditions d&#39;utilisation
                             </Link>
                         </div>
                     </div>
