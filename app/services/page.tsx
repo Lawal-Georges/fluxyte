@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import {
@@ -20,12 +20,14 @@ import {
     PlayCircle,
     ChevronDown
 } from "lucide-react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Link from "next/link";
+
 import Image from "next/image";
 import { useState } from "react";
 
 export default function Services() {
-    const [activeService, setActiveService] = useState("web");
+    const [, setActiveService] = useState("web");
 
     const services = [
         {
@@ -133,7 +135,7 @@ export default function Services() {
         }
     ];
 
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -143,37 +145,19 @@ export default function Services() {
         }
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
                 duration: 0.6,
-                ease: "easeOut"
+                ease: [0.42, 0, 0.58, 1]
             }
         }
     };
 
-    type Shape = "rectangle" | "square" | "wide" | "hexagon" | "circle" | "triangle" | "diamond" | "pentagon" | "star";
 
-    const getShapeClass = (shape: Shape) => {
-        const baseClasses = "relative overflow-hidden group cursor-pointer border-0 backdrop-blur-sm transition-all duration-500";
-
-        const shapeClasses: Record<Shape, string> = {
-            rectangle: "rounded-3xl aspect-[4/3]",
-            square: "rounded-3xl aspect-square",
-            wide: "rounded-3xl col-span-2 aspect-[2/1]",
-            hexagon: "rounded-3xl aspect-[4/3] clip-path-hexagon",
-            circle: "rounded-full aspect-square",
-            triangle: "rounded-3xl aspect-[4/3] clip-path-triangle",
-            diamond: "rounded-3xl aspect-square rotate-45",
-            pentagon: "rounded-3xl aspect-[4/3] clip-path-pentagon",
-            star: "rounded-3xl aspect-[4/3] clip-path-star"
-        };
-
-        return `${baseClasses} ${shapeClasses[shape]}`;
-    };
 
 
     return (

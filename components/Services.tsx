@@ -232,7 +232,7 @@ const Services = () => {
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium mb-6 shadow-lg"
                     >
                         <Sparkles className="h-4 w-4" />
-                        Nos Domaines d'Expertise
+                        Nos Domaines d&#39;Expertise
                     </motion.div>
 
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
