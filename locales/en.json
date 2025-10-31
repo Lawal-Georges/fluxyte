@@ -1,0 +1,17 @@
+{
+    "assistantTitle": "Fluxyte Assistant",
+    "assistant_subtitle": "Support & infos",
+    "bot_welcome": "Hello 👋! I am here to help. Ask me anything about our services, pricing or support.",
+    "bot_greeting_ack": "Hi! How can I help you today?",
+    "bot_services": "We build web and mobile apps, do web design, UX/UI and digital marketing. Want details on a specific service?",
+    "bot_pricing": "Pricing depends on scope. Send details of your project and we'll prepare a quote.",
+    "bot_contact": "You can contact us on WhatsApp or via the contact form. We reply fast!",
+    "bot_fallback": "Sorry, I didn't catch that. Can you rephrase? You can ask about services, pricing or contact.",
+    "bot_no_messages": "No messages yet — start the conversation!",
+    "input_placeholder": "Type your message...",
+    "send": "Send",
+    "close": "Close",
+    "open_assistant": "Open assistant",
+    "change_language": "Change language",
+    "contact_whatsapp": "Contact on WhatsApp"
+}

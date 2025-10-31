@@ -1,0 +1,17 @@
+{
+    "assistantTitle": "Assistant Fluxyte",
+    "assistant_subtitle": "Support & infos",
+    "bot_welcome": "Bonjour 👋 ! Je suis là pour aider. Posez une question sur nos services, tarifs ou support.",
+    "bot_greeting_ack": "Salut ! En quoi puis-je vous aider aujourd'hui ?",
+    "bot_services": "Nous réalisons des applications web & mobiles, design, UX/UI et marketing digital. Besoin de détails sur un service ?",
+    "bot_pricing": "Les tarifs dépendent du périmètre. Envoyez-nous les détails du projet et nous préparerons un devis.",
+    "bot_contact": "Vous pouvez nous contacter via WhatsApp ou le formulaire de contact. Nous répondons rapidement !",
+    "bot_fallback": "Désolé, je n'ai pas compris. Pouvez-vous reformuler ? Vous pouvez demander nos services, tarifs ou contact.",
+    "bot_no_messages": "Aucun message — commencez la conversation !",
+    "input_placeholder": "Écrivez votre message...",
+    "send": "Envoyer",
+    "close": "Fermer",
+    "open_assistant": "Ouvrir l'assistant",
+    "change_language": "Changer de langue",
+    "contact_whatsapp": "Contactez sur WhatsApp"
+}

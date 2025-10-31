@@ -217,7 +217,7 @@ const Footer = () => {
                                     <Phone className="h-5 w-5 text-green-400" />
                                 </div>
                                 <span className="text-gray-300 group-hover:text-green-400 transition-colors">
-                                    +237 620 xx xx xx
+                                    +237 620 73 20 26
                                 </span>
                             </motion.div>
                             <motion.div

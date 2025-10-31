@@ -1,0 +1,46 @@
+/* components/FloatingActions.module.css */
+
+.chatPopup {
+    width: 100%;
+    max-width: 350px;
+    background-color: var(--background);
+    color: var(--foreground);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    animation: fadeInUp 0.4s ease;
+}
+
+@media (max-width: 768px) {
+    .chatPopup {
+        max-width: 90vw;
+        bottom: 80px;
+        right: 5vw;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chatHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.chatBody {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
