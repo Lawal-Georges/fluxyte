@@ -11,7 +11,7 @@ import Message from "./Message";
 
 type Msg = { id: string; role: "user" | "bot"; text: string; time: string };
 
-// Réponses automatiques (inchangées)
+// 🔹 Réponses automatiques Fluxyte
 const botResponses: Record<string, string[]> = {
     accueil: [
         "👋 Bonjour et bienvenue chez **Fluxyte** !",
@@ -97,7 +97,7 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
         async (texts: string[]) => {
             setTyping(true);
             for (const text of texts) {
-                await new Promise((r) => setTimeout(r, 600 + Math.random() * 600));
+                await new Promise((r) => setTimeout(r, 500 + Math.random() * 500));
                 addMessage("bot", text);
             }
             setTyping(false);
@@ -142,28 +142,29 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-0 right-0 w-full max-w-[100vw] sm:max-w-[380px] h-[95dvh] sm:h-[540px] z-[9999] flex flex-col bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl"
-            style={{ maxHeight: "95svh" }} // ✅ adapte la hauteur sur mobile avec clavier
+            className="fixed bottom-0 right-0 w-full max-w-[100vw] sm:max-w-[380px] h-[90dvh] sm:h-[540px] z-[9999] flex flex-col bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl"
         >
-            {/* Header */}
+            {/* 🔹 Header avec bouton Close animé */}
             <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-violet-600 to-blue-600 text-white sticky top-0 z-30">
                 <div className="flex items-center gap-2">
                     <Image src={botIcon} alt="Bot" width={28} height={28} className="rounded-full sm:w-7 sm:h-7" />
                     <span className="font-semibold text-sm sm:text-base">Assistant Fluxyte</span>
                 </div>
-                <button
-                    title="Fermer"
+                <motion.button
+                    whileHover={{ rotate: 90, scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    title="Fermer le chatbot"
                     onClick={onClose}
-                    className="p-2 sm:p-3 rounded-full hover:bg-white/20 transition z-50"
+                    className="p-2 sm:p-2.5 rounded-full hover:bg-white/20 transition-all"
                 >
                     <X size={20} />
-                </button>
+                </motion.button>
             </div>
 
-            {/* Messages */}
+            {/* 🔹 Messages */}
             <div
                 ref={scrollRef}
-                className="flex-1 overflow-y-auto px-3 sm:px-4 py-3 flex flex-col gap-3 bg-gray-50 dark:bg-gray-800 overscroll-contain scroll-smooth"
+                className="flex-1 overflow-y-auto px-3 sm:px-4 py-3 flex flex-col gap-3 bg-gray-50 dark:bg-gray-800 scroll-smooth overscroll-contain"
             >
                 <AnimatePresence initial={false}>
                     {messages.map((m) => (
@@ -201,10 +202,10 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
                 )}
             </div>
 
-            {/* Input */}
+            {/* 🔹 Champ de saisie toujours visible */}
             <form
                 onSubmit={handleSend}
-                className="p-3 border-t border-gray-200 dark:border-gray-700 flex gap-2 items-center bg-white dark:bg-gray-900 sticky bottom-0 z-30"
+                className="p-3 border-t border-gray-200 dark:border-gray-700 flex gap-2 items-center bg-white dark:bg-gray-900 sticky bottom-0"
             >
                 <input
                     value={input}
