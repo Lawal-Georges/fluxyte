@@ -5,10 +5,10 @@ import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import { ThemeProvider } from "@/components/theme-provider";
 import IntlClientProvider from "@/components/IntlClientProvider";
-import "styles/globals.css";
+import "@/styles/globals.css"; // ✅ chemin local
 
-import frMessages from "../locales/fr.json";
-import enMessages from "../locales/en.json";
+import frMessages from "@/locales/fr.json";
+import enMessages from "@/locales/en.json";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,13 +22,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { locale?: string };
 }) {
-  const locale = params?.locale || "fr";
-  const messages = locale === "en" ? enMessages : frMessages;
+  // ✅ Typage explicite de la locale
+  const locale: "fr" | "en" = "fr";
+
+  // Use a lookup map to avoid comparing incompatible literal types
+  const messagesMap: Record<"fr" | "en", typeof frMessages> = {
+    fr: frMessages,
+    en: enMessages,
+  };
+  const messages = messagesMap[locale];
 
   return (
     <html lang={locale} suppressHydrationWarning>
