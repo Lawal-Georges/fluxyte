@@ -11,7 +11,7 @@ import Message from "./Message";
 
 type Msg = { id: string; role: "user" | "bot"; text: string; time: string };
 
-// 💬 Réponses automatiques selon l’intention
+// 💬 Réponses automatiques
 const botResponses: Record<string, string[]> = {
     accueil: [
         "👋 Bonjour et bienvenue chez **Fluxyte** !",
@@ -81,7 +81,6 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
     const [typing, setTyping] = useState(false);
     const scrollRef = useRef<HTMLDivElement | null>(null);
 
-    // ✅ Ajouter un message
     const addMessage = useCallback((role: "user" | "bot", text: string) => {
         setMessages((prev) => [
             ...prev,
@@ -94,7 +93,6 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
         ]);
     }, []);
 
-    // ✅ Simulation de réponses du bot
     const sendBotMessages = useCallback(
         async (texts: string[]) => {
             setTyping(true);
@@ -107,7 +105,6 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
         [addMessage]
     );
 
-    // ✅ Chargement et sauvegarde des messages
     useEffect(() => {
         const stored = localStorage.getItem("fluxyte_chat");
         const parsed = stored ? JSON.parse(stored) : [];
@@ -119,12 +116,10 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
         localStorage.setItem("fluxyte_chat", JSON.stringify(messages));
     }, [messages]);
 
-    // ✅ Scroll automatique
     useEffect(() => {
         scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
     }, [messages, typing]);
 
-    // ✅ Détection d’intention utilisateur
     const detectIntent = (input: string): string[] => {
         const lower = input.toLowerCase();
         const results: string[] = [];
@@ -132,7 +127,6 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
         return results.length ? results : botResponses.inconnu;
     };
 
-    // ✅ Envoi message utilisateur
     const handleSend = (e?: React.FormEvent) => {
         e?.preventDefault();
         if (!input.trim() || typing) return;
@@ -150,22 +144,22 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
             transition={{ duration: 0.3 }}
             className="fixed bottom-0 right-0 w-full max-w-[100vw] sm:max-w-[380px] h-[95vh] sm:h-[540px] z-[9999] flex flex-col bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl"
         >
-            {/* ✅ Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-violet-600 to-blue-600 text-white sticky top-0 z-10">
+            {/* Header */}
+            <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-violet-600 to-blue-600 text-white sticky top-0 z-20">
                 <div className="flex items-center gap-2">
-                    <Image src={botIcon} alt="Bot" width={26} height={26} className="rounded-full" />
+                    <Image src={botIcon} alt="Bot" width={28} height={28} className="rounded-full sm:w-7 sm:h-7" />
                     <span className="font-semibold text-sm sm:text-base">Assistant Fluxyte</span>
                 </div>
                 <button
                     title="Fermer"
                     onClick={onClose}
-                    className="p-1 rounded-full hover:bg-white/20 transition"
+                    className="p-2 sm:p-3 rounded-full hover:bg-white/20 transition z-30"
                 >
-                    <X size={18} />
+                    <X size={20} className="sm:w-5 sm:h-5" />
                 </button>
             </div>
 
-            {/* ✅ Zone des messages */}
+            {/* Messages */}
             <div
                 ref={scrollRef}
                 className="flex-1 overflow-y-auto px-3 sm:px-4 py-3 flex flex-col gap-3 bg-gray-50 dark:bg-gray-800 overscroll-contain scroll-smooth"
@@ -206,10 +200,10 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
                 )}
             </div>
 
-            {/* ✅ Zone d’entrée (input) */}
+            {/* Input */}
             <form
                 onSubmit={handleSend}
-                className="p-3 border-t border-gray-200 dark:border-gray-700 flex gap-2 items-center bg-white dark:bg-gray-900 sticky bottom-0"
+                className="p-3 border-t border-gray-200 dark:border-gray-700 flex gap-2 items-center bg-white dark:bg-gray-900 sticky bottom-0 z-20"
             >
                 <input
                     value={input}
