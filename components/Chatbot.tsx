@@ -11,7 +11,7 @@ import Message from "./Message";
 
 type Msg = { id: string; role: "user" | "bot"; text: string; time: string };
 
-// 💬 Réponses automatiques
+// Réponses automatiques (inchangées)
 const botResponses: Record<string, string[]> = {
     accueil: [
         "👋 Bonjour et bienvenue chez **Fluxyte** !",
@@ -142,10 +142,11 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-0 right-0 w-full max-w-[100vw] sm:max-w-[380px] h-[95vh] sm:h-[540px] z-[9999] flex flex-col bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl"
+            className="fixed bottom-0 right-0 w-full max-w-[100vw] sm:max-w-[380px] h-[95dvh] sm:h-[540px] z-[9999] flex flex-col bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl"
+            style={{ maxHeight: "95svh" }} // ✅ adapte la hauteur sur mobile avec clavier
         >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-violet-600 to-blue-600 text-white sticky top-0 z-20">
+            <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-violet-600 to-blue-600 text-white sticky top-0 z-30">
                 <div className="flex items-center gap-2">
                     <Image src={botIcon} alt="Bot" width={28} height={28} className="rounded-full sm:w-7 sm:h-7" />
                     <span className="font-semibold text-sm sm:text-base">Assistant Fluxyte</span>
@@ -153,9 +154,9 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
                 <button
                     title="Fermer"
                     onClick={onClose}
-                    className="p-2 sm:p-3 rounded-full hover:bg-white/20 transition z-30"
+                    className="p-2 sm:p-3 rounded-full hover:bg-white/20 transition z-50"
                 >
-                    <X size={20} className="sm:w-5 sm:h-5" />
+                    <X size={20} />
                 </button>
             </div>
 
@@ -203,7 +204,7 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
             {/* Input */}
             <form
                 onSubmit={handleSend}
-                className="p-3 border-t border-gray-200 dark:border-gray-700 flex gap-2 items-center bg-white dark:bg-gray-900 sticky bottom-0 z-20"
+                className="p-3 border-t border-gray-200 dark:border-gray-700 flex gap-2 items-center bg-white dark:bg-gray-900 sticky bottom-0 z-30"
             >
                 <input
                     value={input}
