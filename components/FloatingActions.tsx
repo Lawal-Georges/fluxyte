@@ -94,8 +94,8 @@ export default function FloatingActions({ locale }: FloatingActionsProps) {
                             <Image
                                 src="/icons/bot3.png"
                                 alt="Chatbot"
-                                width={44}
-                                height={44}
+                                width={65}
+                                height={65}
                                 className="relative z-10 transition-transform duration-300 hover:scale-110"
                             />
 

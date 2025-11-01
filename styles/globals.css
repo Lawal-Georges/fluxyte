@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-
+/* --- 🌈 Variables et thèmes existants --- */
 @layer base {
     :root {
         --background: 0 0% 100%;
@@ -56,9 +56,16 @@
     body {
         background-color: hsl(var(--background));
         color: hsl(var(--foreground));
+        overflow-x: hidden;
+
+        -webkit-text-size-adjust: 100%;
+        /* iOS Safari, Chrome Mobile */
+        text-size-adjust: 100%;
+        /* Standard, fallback */
     }
 }
 
+/* --- ✨ Utilitaires et effets spéciaux --- */
 @layer utilities {
     .animate-pulse-slow {
         animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -81,6 +88,7 @@
     }
 }
 
+/* --- 🧊 Effet vitre (chat-glass) --- */
 .clip-hexagon {
     clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
 }
@@ -92,7 +100,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Chat scrollbar (optionnel) */
+/* --- 💬 Scrollbar --- */
 .chat-scroll::-webkit-scrollbar {
     width: 8px;
 }
@@ -102,7 +110,7 @@
     border-radius: 999px;
 }
 
-/* Personnalisation de la scrollbar */
+/* --- 🌐 Scrollbar générale --- */
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -114,4 +122,94 @@
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(100, 100, 100, 0.6);
+}
+
+/* --- ⚡ Chatbot mobile fix --- */
+.chatbot-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-width: 380px;
+    height: 90vh;
+    max-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem 1rem 0 0;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(200, 200, 200, 0.4);
+    overflow: hidden;
+    z-index: 9999;
+}
+
+/* Mode sombre */
+@media (prefers-color-scheme: dark) {
+    .chatbot-container {
+        background: rgba(17, 24, 39, 0.95);
+        border-color: rgba(75, 85, 99, 0.6);
+    }
+}
+
+/* Maintien visible sur mobile */
+@supports (height: 100dvh) {
+    .chatbot-container {
+        height: 90dvh;
+    }
+}
+
+/* ✅ Correction du scroll et du clavier mobile */
+.chat-scroll {
+    flex: 1;
+    overflow-y: auto;
+    /* scroll vertical */
+    overscroll-behavior-y: contain;
+    /* empêche les scrolls “rebond” sur mobile */
+    scroll-behavior: smooth;
+    /* scroll fluide */
+    padding-bottom: 0.5rem;
+    /* espace sous les messages */
+}
+
+@media (max-width: 640px) {
+    .chatbot-container {
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100dvh;
+        border-radius: 18px 18px 0 0;
+    }
+
+    .chat-scroll {
+        max-height: calc(100dvh - 150px);
+    }
+
+    form {
+        position: sticky;
+        bottom: 0;
+        background: inherit;
+    }
+}
+
+/* Empêche zoom sur iOS inputs */
+input {
+    font-size: 16px;
+}
+
+/* Animation typing douce */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 1.4s infinite;
 }
