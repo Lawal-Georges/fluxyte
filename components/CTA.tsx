@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Phone, Mail } from 'lucide-react'
+import Link from 'next/link'
 
 const CTA = () => {
     return (
@@ -29,22 +30,28 @@ const CTA = () => {
                         viewport={{ once: true }}
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
-                        <Button
-                            size="lg"
-                            className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 rounded-full"
-                        >
-                            Demander un devis
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                        </Button>
+                        {/* ✅ Bouton "Demander un devis" redirige vers /devis */}
+                        <Link href="/contact">
+                            <Button
+                                size="lg"
+                                className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 rounded-full flex items-center"
+                            >
+                                Demander un devis
+                                <ArrowRight className="ml-2 h-5 w-5" />
+                            </Button>
+                        </Link>
 
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-6 rounded-full"
-                        >
-                            <Phone className="mr-2 h-5 w-5" />
-                            Nous appeler
-                        </Button>
+                        {/* ✅ Bouton "Nous appeler" redirige vers un numéro WhatsApp ou téléphone */}
+                        <Link href="/contact" target="_blank">
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-6 rounded-full flex items-center"
+                            >
+                                <Phone className="mr-2 h-5 w-5" />
+                                Nous appeler
+                            </Button>
+                        </Link>
                     </motion.div>
 
                     <motion.div

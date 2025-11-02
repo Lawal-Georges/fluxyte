@@ -34,7 +34,7 @@ const Services = () => {
             bgColor: "bg-gradient-to-br from-blue-100/50 to-cyan-100/50 dark:from-blue-950/40 dark:to-cyan-950/40",
             shape: "rectangle",
             size: "large",
-            href: "/services/web-dev",
+            href: "/services",
         },
         {
             icon: <Smartphone className="h-10 w-10" />,
@@ -50,7 +50,7 @@ const Services = () => {
             bgColor: "bg-gradient-to-br from-green-100/50 to-emerald-100/50 dark:from-green-950/40 dark:to-emerald-950/40",
             shape: "square",
             size: "medium",
-            href: "/services/app-dev",
+            href: "/services",
         },
         {
             icon: <Palette className="h-10 w-10" />,
@@ -67,7 +67,7 @@ const Services = () => {
             bgColor: "bg-gradient-to-br from-purple-100/50 to-violet-100/50 dark:from-purple-950/40 dark:to-violet-950/40",
             shape: "wide",
             size: "large",
-            href: "/services/branding",
+            href: "/services",
         },
         {
             icon: <BarChart3 className="h-10 w-10" />,
@@ -85,7 +85,7 @@ const Services = () => {
             bgColor: "bg-gradient-to-br from-orange-100/50 to-amber-100/50 dark:from-orange-950/40 dark:to-amber-950/40",
             shape: "rectangle",
             size: "medium",
-            href: "/services/marketing",
+            href: "/services",
         },
         {
             icon: <Settings className="h-10 w-10" />,
@@ -101,7 +101,7 @@ const Services = () => {
             bgColor: "bg-gradient-to-br from-red-100/50 to-rose-100/50 dark:from-red-950/40 dark:to-rose-950/40",
             shape: "square",
             size: "small",
-            href: "/services/maintenance",
+            href: "/services",
         },
         {
             icon: <Megaphone className="h-10 w-10" />,
@@ -119,7 +119,7 @@ const Services = () => {
             bgColor: "bg-gradient-to-br from-pink-100/50 to-fuchsia-100/50 dark:from-pink-950/40 dark:to-fuchsia-950/40",
             shape: "wide",
             size: "large",
-            href: "/services/sponsored",
+            href: "/services",
         },
     ];
 

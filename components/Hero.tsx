@@ -287,10 +287,10 @@ export default function Hero() {
                                            dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-primary-foreground"
                             >
                                 <div className="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
-                                <span className="flex items-center relative z-10">
+                                <Link href="/contact" className="flex items-center relative z-10">
                                     <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform duration-300" />
                                     Voir la démo
-                                </span>
+                                </Link>
                             </Button>
                         </motion.div>
                     </motion.div>

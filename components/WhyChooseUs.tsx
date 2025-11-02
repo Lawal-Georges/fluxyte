@@ -15,6 +15,7 @@ import {
     Star,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const WhyChooseUs = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -356,15 +357,17 @@ const WhyChooseUs = () => {
                             transition={{ delay: 0.7 }}
                             className="pt-4 flex justify-center"
                         >
-                            <motion.button
-                                whileHover={{ scale: 1.03, rotate: 1 }}
-                                whileTap={{ scale: 0.97 }}
-                                className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-2xl px-5 py-3 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-sm md:text-base"
-                            >
-                                <Target className="h-4 w-4 md:h-5 md:w-5" />
-                                Commencer Mon Projet
-                                <Zap className="h-4 w-4 md:h-5 md:w-5" />
-                            </motion.button>
+                            <Link href="/contact">
+                                <motion.button
+                                    whileHover={{ scale: 1.03, rotate: 1 }}
+                                    whileTap={{ scale: 0.97 }}
+                                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-2xl px-5 py-3 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-sm md:text-base"
+                                >
+                                    <Target className="h-4 w-4 md:h-5 md:w-5" />
+                                    Commencer Mon Projet
+                                    <Zap className="h-4 w-4 md:h-5 md:w-5" />
+                                </motion.button>
+                            </Link>
                         </motion.div>
                     </motion.div>
 
