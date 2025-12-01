@@ -182,7 +182,7 @@ const Header = () => {
                         <motion.button
                             onClick={() => setIsOpen(!isOpen)}
                             className={cn(
-                                "md:hidden relative w-9 h-9 flex flex-col justify-center items-center group",
+                                "md:hidden relative w-6 h-1 flex flex-col justify-center items-center group",
                                 "transition-all duration-300"
                             )}
                             whileTap={{ scale: 0.9 }}
